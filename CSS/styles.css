@@ -1,0 +1,489 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== THEME VARIABLES ===== */
+:root {
+  --primary: #79C2BA;
+  --accent: #2D3E50;
+  --dark: #2D3E50;
+
+  --bg: #F4F7F9;
+  --text: #2D3E50;
+  --card: #ffffff;
+}
+
+/* DARK MODE */
+body.dark {
+  --bg: #121212;
+  --text: #EAEAEA;
+  --card: #1E1E1E;
+  --primary: #79C2BA;
+  --accent: #2D3E50;
+}
+
+body.dark input,
+body.dark textarea {
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.4s;
+}
+
+/* HEADINGS */
+h1, h2, h3 {
+  font-family: 'Inter', serif;
+  line-height: 25px
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 40px;
+}
+
+h2{
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+span {
+  line-height: 1px;
+}
+
+.title-two {
+  margin-top: 50px;
+}
+/* ===== NAVBAR ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:50px 10px;
+  background: linear-gradient(90deg, var(--primary), var(--dark));
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 40px;
+  padding-left: 50px;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+.navbar nav {
+  margin-right: 70px;
+}
+
+.logo {
+    padding-left: 35px;
+    line-height: 15px;
+}
+
+/* ===== SLIDER ===== */
+.switch {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #ccc;
+  border-radius: 50px;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+input:checked + .slider {
+  background: var(--primary);
+}
+
+/* HERO */
+.hero {
+  padding: 3rem 1rem;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("../images/congruent_pentagon Roopesh Munglani.png");
+
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+}
+
+/* HERO LAYOUT */
+.hero-container {
+  max-width: 1100px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding-left: 25px;
+}
+
+/* IMAGE */
+.hero-image img {
+  width: 100%;
+  max-width: 220px;
+
+  border-radius: 12px;
+  border: 4px solid white;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* TEXT */
+.hero-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 3rem 1rem;
+  scroll-margin-top: 250px;
+}
+
+/* CARD */
+.section-card {
+  max-width: 1100px;
+  margin: auto;
+
+  background: var(--card);
+  padding: 2rem;
+
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+  transition: 0.3s;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* smaller image, more space for text */
+  gap: 2rem;
+  align-items: center;
+}
+
+.grid img {
+  width: 100%;
+  max-width: 350px;   /* limits image size */
+  border-radius: 12px;
+  transition: 0.3s;
+  justify-self: center; /* keeps it nicely aligned */
+}
+
+.grid img:hover {
+  transform: scale(1.03);
+}
+
+.address {
+  padding: 10px;
+}
+
+/* CLINICS GRID */
+.clinics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.clinic-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  cursor: pointer
+}
+
+.clinic-card:hover {
+  transform: translateY(-5px);
+}
+
+.clinic-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.clinic-contact {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+/* CV BUTTON */
+.cv-button {
+  display: inline-block;
+  margin-top: 1rem;
+
+  padding: 10px;
+  border-radius: 8px;
+
+  background: var(--primary);
+  color: white;
+  font: var(--text);
+
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.cv-button:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* NEWS SCROLL CONTAINER */
+
+.news-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.news-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* INDIVIDUAL NEWS CARDS */
+.news-item {
+  flex: 0 0 65%;
+  max-width: 480px;
+  background: var(--card);
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  scroll-snap-align: start;
+  transition: 0.3s;
+
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+}
+
+/* STATIC NEWS */
+.news-static {
+  margin-top: 2rem;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.news-wrapper {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  align-items: center;
+  gap: 1rem;
+  overflow: visible;
+  position: relative;
+}
+
+.news-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 50px;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+
+  background: linear-gradient(to left, var(--card), transparent);
+
+  pointer-events: none;
+}
+
+.news-btn {
+  position: static;
+  
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--card);
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  transition: 0.3s;
+}
+
+.news-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* MOBILE NEWS*/
+@media (max-width: 768px) {
+  .news-btn {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .clinics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.feature {
+  margin: 3rem 0;
+  padding: 5rem 2rem;
+
+  background:
+    linear-gradient(rgba(45,62,80,0.85), rgba(45,62,80,0.85)),
+    url("../images/shutterstock_785175802 Roopesh Munglani.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  color: white;
+  text-align: center;
+}
+
+/* CONTACT */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--card);   
+  color: var(--text);        
+  border: 1px solid rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 0 2px rgba(121, 194, 186, 0.2);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+}
+
+button:hover {
+  background: var(--accent);
+}
+
+/* ===== ANIMATION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MOBILE GENERAL===== */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-image img {
+    margin: auto;
+  }
+}
+.hero-image img {
+  transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.03);
+}
+
+footer {
+  padding-left: 50px;
+  padding-bottom: 25px;
+  font-size: 10px;
+}
