@@ -149,64 +149,100 @@ span {
 
 /* BURGER */
 
+/* ===== MOBILE NAV ===== */
+
 .burger{
-  display:none;
-
-  background:transparent;
-
-  border:none;
-
-  color:white;
-
-  font-size:32px;
-
-  padding:0;
-
-  width:40px;
-  height:40px;
-
-  line-height:1;
-
-  cursor:pointer;
-
-  flex-shrink:0;
+  display:none !important;
 }
-
-/* MOBILE */
 
 @media (max-width:900px){
 
   .navbar{
 
-  position:relative;
+    display:grid;
 
-  display:flex;
+    grid-template-columns:
+      1fr
+      auto
+      auto;
 
-  align-items:center;
+    align-items:center;
 
-  flex-wrap:wrap;
+    column-gap:16px;
 
-}
+    position:relative;
 
-  /* hide nav completely */
+  }
 
-  .navbar > nav{
+  /* SHOW BURGER */
 
-    display:none;
+  .burger{
 
-    order:10;
+    display:flex !important;
 
-    width:100%;
+    align-items:center;
+
+    justify-content:center;
+
+    width:42px;
+
+    height:42px;
+
+    padding:0 !important;
+
+    margin:0 !important;
+
+    background:none !important;
+
+    border:none !important;
+
+    color:white !important;
+
+    font-size:30px;
+
+    z-index:999;
+
+  }
+
+  /* HIDE NAV */
+
+  .navbar nav{
+
+    display:none !important;
+
+    grid-column:1 / -1;
 
     flex-direction:column;
 
-    align-items:flex-start;
+    gap:16px;
 
-    gap:18px;
+    padding-top:16px;
 
-    margin:12px 0 0 0;
+    margin:0;
 
   }
+
+  /* OPEN */
+
+  .navbar nav.open{
+
+    display:flex !important;
+
+  }
+
+  /* TOGGLE */
+
+  .switch{
+
+    position:static;
+
+    transform:none;
+
+    margin:0;
+
+  }
+
+}
 
   /* show when JS opens */
 
@@ -240,8 +276,6 @@ span {
   margin:0;
 
   }
-
-}
 
 /* ===== SLIDER ===== */
 .switch{
