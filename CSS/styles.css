@@ -160,7 +160,7 @@ span {
 
   font-size:32px;
 
-  padding:0 !important;
+  padding:0;
 
   width:40px;
   height:40px;
@@ -178,13 +178,15 @@ span {
 
   .navbar{
 
-    display:flex;
+  position:relative;
 
-    flex-wrap:wrap;
+  display:flex;
 
-    gap:12px;
+  align-items:center;
 
-  }
+  flex-wrap:wrap;
+
+}
 
   /* hide nav completely */
 
@@ -218,15 +220,24 @@ span {
 
     display:block;
 
-    margin-left:auto;
+  margin-left:auto;
 
+  margin-right:70px;
   }
 
   /* keep toggle right */
 
   .switch{
 
-    margin-left:0;
+  position:absolute;
+
+  right:20px;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  margin:0;
 
   }
 
