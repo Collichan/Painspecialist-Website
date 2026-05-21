@@ -174,44 +174,61 @@ span {
 
   .navbar{
 
-    flex-wrap:wrap;
+    display:grid;
+
+    grid-template-columns:
+      1fr
+      auto
+      auto;
 
     align-items:center;
-
-  }
-
-  .burger{
-
-    display:block;
-
-    margin-left:auto;
-
-  }
-
-  .navbar nav{
-
-    display:none;
-
-    width:100%;
-
-    margin:16px 0 0;
-
-    flex-direction:column;
-
-    align-items:flex-start;
 
     gap:16px;
 
   }
 
+  .logo{
+    min-width:0;
+  }
+
+  .burger{
+
+    display:block !important;
+
+    font-size:32px;
+
+    line-height:1;
+
+    padding:0;
+
+    z-index:999;
+
+  }
+
+  .navbar nav{
+
+    display:none !important;
+
+    grid-column:1 / -1;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    padding-top:12px;
+
+    margin:0;
+
+  }
+
   .navbar nav.open{
-    display:flex;
+    display:flex !important;
   }
 
   .switch{
-
-    margin-left:12px;
-
+    margin:0;
   }
 
 }
