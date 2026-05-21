@@ -540,13 +540,14 @@ footer {
   font-size: 10px;
 }
 
-/* ===== MOBILE BURGER ===== */
+
+/* ===== MOBILE NAV ===== */
 
 .burger{
   display:none;
 }
 
-@media (max-width:900px){
+@media (max-width:1000px){
 
   .burger{
 
@@ -556,7 +557,7 @@ footer {
 
     border:none !important;
 
-    color:white !important;
+    color:white;
 
     font-size:32px;
 
@@ -577,23 +578,13 @@ footer {
   }
 
   .switch{
-    order:4;
+    order:3;
     margin-left:auto;
   }
 
-  .navbar{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-  }
+  /* IMPORTANT */
 
   .navbar nav{
-
-    display:none !important;
 
     position:absolute;
 
@@ -603,21 +594,33 @@ footer {
 
     right:0;
 
-    padding:20px;
-
     background:var(--dark);
+
+    padding:20px;
 
     flex-direction:column;
 
-    gap:18px;
+    gap:16px;
 
-    z-index:999;
+    display:flex;
+
+    visibility:hidden;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.2s;
 
   }
 
   .navbar nav.open{
 
-    display:flex !important;
+    visibility:visible;
+
+    opacity:1;
+
+    pointer-events:auto;
 
   }
 
