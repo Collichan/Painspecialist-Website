@@ -65,57 +65,175 @@ span {
   margin-top: 50px;
 }
 /* ===== NAVBAR ===== */
-.navbar {
+
+.navbar{
   position: sticky;
-  top: 0;
-  z-index: 1000;
-  line-height: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding:50px 10px;
-  background: linear-gradient(90deg, var(--primary), var(--dark));
-  color: white;
+  top:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap: 30px;
+
+  padding:14px 30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--dark)
+    );
+
+  color:white;
+
+  z-index:1000;
+
+  min-height:72px;
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin-left: 40px;
-  padding-left: 50px;
+/* LOGO */
+
+.logo{
+  flex-shrink:0;
+  line-height:1.2;
 }
 
-.navbar a:hover {
-  color: var(--accent);
+.logo h1{
+  margin:0;
+  font-size:1.8rem;
 }
 
-.navbar nav {
-  margin-right: 70px;
+.logo p{
+  margin:2px 0 0;
 }
 
-.logo {
-    padding-left: 35px;
-    line-height: 15px;
+.logo span{
+  line-height:1.2;
+}
+
+/* NAV */
+
+.navbar nav{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:22px;
+
+  flex:1;
+
+  min-width:0;
+
+  white-space:nowrap;
+}
+
+.navbar nav a{
+  margin:0;
+  padding:0;
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:0.95rem;
+}
+
+.navbar nav a:hover{
+  color:var(--accent);
+}
+
+/* BURGER */
+
+.burger{
+  display:none;
+
+  background:none;
+
+  border:none;
+
+  color:white;
+
+  font-size:2rem;
+
+  cursor:pointer;
+
+  padding:0;
+
+  margin-left:auto;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px){
+
+  .navbar{
+    flex-wrap:wrap;
+    padding:12px 20px;
+  }
+
+  .burger{
+    display:block;
+  }
+
+  .navbar nav{
+
+    display:none;
+
+    width:100%;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    padding-top:18px;
+  }
+
+  .navbar nav.open{
+    display:flex;
+  }
+
 }
 
 /* ===== SLIDER ===== */
-.switch {
-  position: absolute;
-  top: 15px;
-  right: 20px;
+.switch{
+  position: static;
 
   width: 50px;
+  min-width: 50px;
+
   height: 26px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-left: 16px;
+
+  flex: 0 0 auto;
 }
 
 .switch input {
   display: none;
 }
 
-.slider {
-  position: absolute;
-  inset: 0;
+.slider{
+  position: relative;
+
+  width: 50px;
+
+  height: 26px;
+
+  display: block;
+
   background: #ccc;
+
   border-radius: 50px;
 }
 
