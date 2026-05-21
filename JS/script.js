@@ -107,33 +107,90 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== BURGER ===== */
 
-  const burger =
-  document.getElementById(
-    "burgerBtn"
-  );
+  /* ===== BURGER ===== */
 
-  const nav =
-  document.getElementById(
-    "navMenu"
-  );
+const burger =
+document.getElementById(
+"burgerBtn"
+);
 
-  if (
-    burger &&
-    nav
-  ){
+const nav =
+document.getElementById(
+"navMenu"
+);
 
-    burger.addEventListener(
-      "click",
-      () => {
+if (
+burger &&
+nav
+){
 
-        nav.classList.toggle(
-          "open"
-        );
+burger.addEventListener(
+"click",
+e => {
 
-      }
-    );
+e.stopPropagation();
 
-  }
+/* toggle open/close */
+
+nav.classList.toggle(
+"open"
+);
+
+});
+
+/* close if clicking outside */
+
+document.addEventListener(
+"click",
+e => {
+
+const clickedBurger =
+burger.contains(
+e.target
+);
+
+const clickedMenu =
+nav.contains(
+e.target
+);
+
+if(
+!clickedBurger
+&&
+!clickedMenu
+){
+
+nav.classList.remove(
+"open"
+);
+
+}
+
+});
+
+/* close after selecting link */
+
+nav
+.querySelectorAll(
+"a"
+)
+
+.forEach(
+link => {
+
+link.addEventListener(
+"click",
+() => {
+
+nav.classList.remove(
+"open"
+);
+
+});
+
+});
+
+}
 
 });
 
