@@ -45,7 +45,7 @@ h1, h2, h3 {
 h1 {
     font-size: 40px;
     font-weight: bold;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 h2{
@@ -84,7 +84,7 @@ NAVBAR
         var(--dark)
     );
 
-    padding:14px 24px;
+    padding:25px 30px;
 
     display:flex;
 
@@ -148,9 +148,11 @@ flex-shrink:0;
 
 .logo h1{
 
-    margin:0;
+    margin-bottom: 10px;
 
-    font-size:28px;
+    margin-top: 10px;
+
+    font-size:35px;
 
     line-height:1;
 
@@ -173,7 +175,7 @@ flex-shrink:0;
 
   align-items:center;
 
-  gap:28px;
+  gap:35px;
 
   margin-left:auto;
 
@@ -390,7 +392,7 @@ display:flex;
 
   background:
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url("../images/congruent_pentagon Roopesh Munglani.png");
+    url("/Images/congruent_pentagon Roopesh Munglani.png");
 
   background-size: cover;
   background-position: center;
@@ -643,7 +645,7 @@ section {
 
   background:
     linear-gradient(rgba(45,62,80,0.85), rgba(45,62,80,0.85)),
-    url("../images/shutterstock_785175802 Roopesh Munglani.jpg");
+    url("/Images/shutterstock_785175802 Roopesh Munglani.jpg");
 
   background-size: cover;
   background-position: center;
