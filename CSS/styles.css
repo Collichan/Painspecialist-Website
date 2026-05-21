@@ -150,66 +150,51 @@ span {
 /* BURGER */
 
 .burger{
-
   display:none;
 
-  background:none;
+  background:transparent;
 
   border:none;
 
   color:white;
 
-  font-size:2rem;
+  font-size:32px;
+
+  padding:0 !important;
+
+  width:40px;
+  height:40px;
+
+  line-height:1;
 
   cursor:pointer;
 
-  width:auto;
-
-  padding:0;
-
+  flex-shrink:0;
 }
+
 /* MOBILE */
 
 @media (max-width:900px){
 
   .navbar{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:
-      1fr
-      auto
-      auto;
+    flex-wrap:wrap;
 
-    align-items:center;
-
-    gap:16px;
+    gap:12px;
 
   }
 
-  .logo{
-    min-width:0;
-  }
+  /* hide nav completely */
 
-  .burger{
+  .navbar > nav{
 
-    display:block !important;
+    display:none;
 
-    font-size:32px;
+    order:10;
 
-    line-height:1;
-
-    padding:0;
-
-    z-index:999;
-
-  }
-
-  .navbar nav{
-
-    display:none !important;
-
-    grid-column:1 / -1;
+    width:100%;
 
     flex-direction:column;
 
@@ -217,18 +202,32 @@ span {
 
     gap:18px;
 
-    padding-top:12px;
-
-    margin:0;
+    margin:12px 0 0 0;
 
   }
 
-  .navbar nav.open{
-    display:flex !important;
+  /* show when JS opens */
+
+  .navbar > nav.open{
+    display:flex;
   }
+
+  /* show burger */
+
+  .navbar > .burger{
+
+    display:block;
+
+    margin-left:auto;
+
+  }
+
+  /* keep toggle right */
 
   .switch{
-    margin:0;
+
+    margin-left:0;
+
   }
 
 }
