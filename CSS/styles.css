@@ -365,7 +365,7 @@ z-index:1001;
 
 display:none;
 
-position: flex;
+position:absolute;
 
 /* IMPORTANT */
 
@@ -663,9 +663,9 @@ section {
 
   background:
     linear-gradient(rgba(45,62,80,0.85), rgba(45,62,80,0.85)),
-    url("/Images/shutterstock_785175802 Roopesh Munglani.jpg");
+    url("/Images/shutterstock_785175802 Roopesh Munglani.jpeg");
 
-  background-size: cover;
+  background-size:cover;
   background-position: center;
 
   color: white;
