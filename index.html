@@ -1,730 +1,266 @@
-html {
-  scroll-behavior: smooth;
-}
-
-/* ===== THEME VARIABLES ===== */
-:root {
-  --primary: #79C2BA;
-  --accent: #2D3E50;
-  --dark: #2D3E50;
-
-  --bg: #F4F7F9;
-  --text: #2D3E50;
-  --card: #ffffff;
-}
-
-/* DARK MODE */
-body.dark {
-  --bg: #121212;
-  --text: #EAEAEA;
-  --card: #1E1E1E;
-  --primary: #79C2BA;
-  --accent: #2D3E50;
-}
-
-body.dark input,
-body.dark textarea {
-  border: 1px solid rgba(255,255,255,0.2);
-}
-
-/* ===== BASE ===== */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: 0.4s;
-}
-
-/* HEADINGS */
-h1, h2, h3 {
-  font-family: 'Inter', serif;
-  line-height: 25px
-}
-
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 40px;
-}
-
-h2{
-  font-size: 30px;
-  font-weight: bolder;
-}
-
-h3 {
-  font-size: 17px;
-}
-
-span {
-  line-height: 1px;
-}
-
-.title-two {
-  margin-top: 50px;
-}
-
-/* ==================================================
-NAVBAR
-================================================== */
-
-.navbar{
-
-    position:sticky;
-
-    top:0;
-
-    z-index:1000;
-
-    background:
-    linear-gradient(
-        90deg,
-        var(--primary),
-        var(--dark)
-    );
-
-    padding:14px 24px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    color:white;
-
-}
-
-/* BURGER */
-
-#burgerBtn{
-
-display:none;
-
-background:none !important;
-
-border:none !important;
-
-border-radius:0 !important;
-
-padding:0 !important;
-
-margin:0 !important;
-
-width:40px;
-
-height:40px;
-
-font-size:32px;
-
-line-height:1;
-
-color:white;
-
-cursor:pointer;
-
-appearance:none;
-
--webkit-appearance:none;
-
-flex-shrink:0;
-
-}
-
-/* LOGO */
-
-.logo{
-
-    display:flex;
-
-    flex-direction:column;
-
-    line-height:1.1;
-
-    flex-shrink:0;
-
-}
-
-.logo h1{
-
-    margin:0;
-
-    font-size:28px;
-
-    line-height:1;
-
-}
-
-.logo span,
-.logo p{
-
-    margin:2px 0;
-
-    font-size:13px;
-
-}
-
-/* NAV */
-
-.navbar nav{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:28px;
-
-  margin-left:auto;
-
-  min-width:0;
-}
-
-.navbar nav a{
-
-    color:white;
-
-    text-decoration:none;
-
-    white-space:nowrap;
-
-    font-size:15px;
-
-}
-
-/* SWITCH */
-
-.switch{
-
-    width:50px;
-
-    height:26px;
-
-    margin-left:12px;
-
-    flex-shrink:0;
-
-}
-
-.switch input{
-
-    display:none;
-
-}
-
-.slider{
-
-    position:relative;
-
-    display:block;
-
-    width:50px;
-
-    height:26px;
-
-    background:#ccc;
-
-    border-radius:999px;
-
-    cursor:pointer;
-
-}
-
-.slider:before{
-
-    content:"";
-
-    position:absolute;
-
-    top:3px;
-
-    left:3px;
-
-    width:20px;
-
-    height:20px;
-
-    border-radius:50%;
-
-    background:white;
-
-    transition:.25s;
-
-}
-
-input:checked + .slider{
-
-    background:var(--primary);
-
-}
-
-input:checked + .slider:before{
-
-    transform:translateX(24px);
-
-}
-
-/* ==================================================
-MOBILE
-================================================== */
-
-@media (max-width:900px){
-
-.navbar{
-
-display:grid;
-
-grid-template-columns:
-auto
-1fr
-auto;
-
-align-items:center;
-
-padding:12px 18px;
-
-position:relative;
-
-}
-
-/* BURGER */
-
-#burgerBtn{
-
-display:flex !important;
-
-align-items:center;
-
-justify-content:center;
-
-justify-self:start;
-
-z-index:999;
-
-}
-
-/* LOGO */
-
-.logo{
-
-min-width:0;
-
-overflow:hidden;
-
-}
-
-.logo h1{
-
-font-size:22px;
-
-white-space:nowrap;
-
-overflow:hidden;
-
-text-overflow:ellipsis;
-
-}
-
-.logo span,
-.logo p{
-
-font-size:11px;
-
-}
-
-/* SWITCH */
-
-.switch{
-
-justify-self:end;
-
-margin:0;
-
-}
-
-/* MENU */
-
-.navbar nav{
-
-display:none;
-
-position:absolute;
-
-top:100%;
-
-left:0;
-
-right:0;
-
-background:var(--dark);
-
-padding:20px;
-
-margin:0;
-
-flex-direction:column;
-
-align-items:flex-start;
-
-gap:18px;
-
-box-shadow:
-0 12px 30px
-rgba(0,0,0,.25);
-
-z-index:999;
-
-}
-
-.navbar nav.open{
-
-display:flex;
-
-}
-
-}
-
-/* HERO */
-.hero {
-  padding: 3rem 1rem;
-
-  background:
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url("../images/congruent_pentagon Roopesh Munglani.png");
-
-  background-size: cover;
-  background-position: center;
-
-  color: white;
-}
-
-/* HERO LAYOUT */
-.hero-container {
-  max-width: 1100px;
-  margin: auto;
-
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 2rem;
-  align-items: center;
-  padding-left: 25px;
-}
-
-/* IMAGE */
-.hero-image img {
-  width: 100%;
-  max-width: 220px;
-
-  border-radius: 12px;
-  border: 4px solid white;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* TEXT */
-.hero-text h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  opacity: 0.95;
-}
-
-/* ===== SECTIONS ===== */
-section {
-  padding: 3rem 1rem;
-  scroll-margin-top: 250px;
-}
-
-/* CARD */
-.section-card {
-  max-width: 1100px;
-  margin: auto;
-
-  background: var(--card);
-  padding: 2rem;
-
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-
-  transition: 0.3s;
-}
-
-.section-card:hover {
-  transform: translateY(-5px);
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr; /* smaller image, more space for text */
-  gap: 2rem;
-  align-items: center;
-}
-
-.grid img {
-  width: 100%;
-  max-width: 350px;   /* limits image size */
-  border-radius: 12px;
-  transition: 0.3s;
-  justify-self: center; /* keeps it nicely aligned */
-}
-
-.grid img:hover {
-  transform: scale(1.03);
-}
-
-.address {
-  padding: 10px;
-}
-
-/* CLINICS GRID */
-.clinics-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.clinic-card {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: 12px;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  cursor: pointer
-}
-
-.clinic-card:hover {
-  transform: translateY(-5px);
-}
-
-.clinic-card h3 {
-  margin-bottom: 0.5rem;
-}
-
-.clinic-contact {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-}
-
-/* CV BUTTON */
-.cv-button {
-  display: inline-block;
-  margin-top: 1rem;
-
-  padding: 10px;
-  border-radius: 8px;
-
-  background: var(--primary);
-  color: white;
-  font: var(--text);
-
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.cv-button:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-}
-
-/* NEWS SCROLL CONTAINER */
-
-.news-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.news-scroll {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 1rem 0;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 0;
-  width: 100%;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-/* INDIVIDUAL NEWS CARDS */
-.news-item {
-  flex: 0 0 65%;
-  max-width: 480px;
-  background: var(--card);
-  padding: 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  scroll-snap-align: start;
-  transition: 0.3s;
-
-}
-
-.news-item:hover {
-  transform: translateY(-5px);
-}
-
-/* STATIC NEWS */
-.news-static {
-  margin-top: 2rem;
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-.news-wrapper {
-  display: grid;
-  grid-template-columns: 50px 1fr 50px;
-  align-items: center;
-  gap: 1rem;
-  overflow: visible;
-  position: relative;
-}
-
-.news-wrapper::after {
-  content: "";
-  position: absolute;
-  right: 50px;
-  top: 0;
-  bottom: 0;
-  width: 50px;
-
-  background: linear-gradient(to left, var(--card), transparent);
-
-  pointer-events: none;
-}
-
-.news-btn {
-  position: static;
-  
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: var(--card);
-  border: none;
-  border-radius: 50%;
-
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-
-  transition: 0.3s;
-}
-
-.news-btn:hover {
-  background: var(--primary);
-  color: white;
-}
-
-/* MOBILE NEWS*/
-
-@media (max-width: 900px) {
-  .clinics-grid {
-    grid-template-columns: 1fr;
-    display: none;
-  }
-  }
-
-.link {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: bold;
-}
-
-.feature {
-  margin: 3rem 0;
-  padding: 5rem 2rem;
-
-  background:
-    linear-gradient(rgba(45,62,80,0.85), rgba(45,62,80,0.85)),
-    url("../images/shutterstock_785175802 Roopesh Munglani.jpg");
-
-  background-size: cover;
-  background-position: center;
-
-  color: white;
-  text-align: center;
-}
-
-/* CONTACT */
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-input, textarea {
-  padding: 1rem;
-  border-radius: 8px;
-  background: var(--card);   
-  color: var(--text);        
-  border: 1px solid rgba(0,0,0,0.15);
-  transition: 0.3s;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border: 1px solid var(--primary);
-  box-shadow: 0 0 0 2px rgba(121, 194, 186, 0.2);
-}
-
-button {
-  background: var(--primary);
-  color: white;
-  padding: 1rem;
-  border: none;
-  border-radius: 8px;
-}
-
-button:hover {
-  background: var(--accent);
-}
-
-/* ===== ANIMATION ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 0.8s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== MOBILE GENERAL===== */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media (max-width: 768px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-image img {
-    margin: auto;
-  }
-}
-.hero-image img {
-  transition: transform 0.3s ease;
-}
-
-.hero-image img:hover {
-  transform: scale(1.03);
-}
-
-footer {
-  padding-left: 50px;
-  padding-bottom: 25px;
-  font-size: 10px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr Neil Collighan</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/styles.css">
+  <script defer src="/JS/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <button class="burger" id="burgerBtn">
+        ☰
+    </button>
+
+    <div class="logo">
+        <h1>Dr Neil Collighan</h1>
+        <span>Pain Medicine Consultant</span>
+        <p>MBChB FRCA FFPMRCA</p>
+    </div>
+
+    <nav id="navMenu">
+        <a href="#top">Home</a>
+        <a href="#services">Services</a>
+        <a href="#medico">Medicolegal</a>
+        <a href="#clinics">Clinics</a>
+        <a href="#contact">Contact</a>
+        <a href="#news">News</a>
+    </nav>
+
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+    </label>
+
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-image">
+      <img src="/Images/DrNeilCollighan.jpg" alt="Dr Neil Collighan">
+    </div>
+    <div class="hero-text">
+      <h2>About Dr Neil Collighan</h2>
+      <p>
+        Dr Collighan is a full-time Consultant in Pain Medicine, specialising in a wide range of pain conditions.
+        He has delivered Pain management at East Kent Hospitals University Foundation NHS Trust for the last 11 years
+        and has been Lead Consultant during that time.
+      </p>
+      <p>
+        He believes that all pain management strategies should be a combined medical, interventional and psychological approach
+        to ensure optimum results and patient wellbeing.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade-in">
+  <div class="section-card grid">
+    <div>
+      <h2>Practice</h2>
+      <p>Dr Collighan has a private practice at BMI Chaucer Hospital in Canterbury,
+      Spencer Private Hospital in Margate and also at the One Ashford Hospital in Ashford, Kent.</p>
+    </div>
+    <img src="/Images/shutterstock_655120636 Roopesh Munglani.jpg">  
+  </div>
+</section>
+
+<!-- CV -->
+<section class="fade-in">
+  <div class="section-card">
+    <h2>Professional CV</h2>
+    <p>Dr Neil Collighan's CV can be downloaded <a href="#" class="cv-button">here</a></p>
+  </div>
+</section>
+
+<!-- SPECIALISM -->
+<section class="fade-in">
+  <div class="section-card">
+    <h2>Specialism</h2>
+    <p>
+      Dr Collighan has been trained in the more complex interventional procedures including spinal cord stimulation, intrathecal drug delivery devices and intradiscal therapies. He has recently developed a private multidisciplinary Spinal Cord Stimulation service for the County of Kent which can be delivered at any of the hospitals he consults out of.
+    </p>
+    <p>
+      He has 10 years experience in preparing and submitting medico-legal reports with regards to assessment of pain management and treatment requirements.    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="fade-in">
+  <div class="section-card grid">
+    <img src="/Images/neuromodulation pdf photo Roopesh Munglani.jpg">
+
+    <div>
+      <h2>Services</h2>
+      <h3>Dr Collighan has recently developed a private multidisciplinary Spinal Cord Stimulation service for the County of Kent</h3>
+      <ul>
+        <li>Cervical/Thoracic/Lumbar/Caudal epidurals under X-ray guidance</li>
+        <li>Cervical/Thoracic/Lumbar/Sacral nerve root blocks</li>
+        <li>Guanethedine blocks</li>
+        <li>Paravertebral blocks</li>
+        <li>Cervical,Thoracic and Lumbar facet joint injections</li>
+        <li>Sacroiliac joint injections</li>
+        <li>Radiofrequency denervation of Cervical/Thoracic/Lumbar facet joints and sacroiliac joints</li>
+        <li>Lumbar sympathectomy</li>
+        <li>Pulsed Radiofrequency of a dorsal root ganglion/ peripheral nerve</li>
+        <li>Joint injections under X ray guidance</li>
+        <li>Occipital nerve blocks</li>
+        <li>Botox for muscular pains and migraine</li>
+        <li>Epidural adhesiolysis (Racz procedure)s</li>
+        <li>Neuromodulation – spinal cord stimulation, High frequency cord stimulation</li>
+        <li>Dorsal root ganglion stimulation, Intrathecal pump device implantation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NEUROMODULATION -->
+<section class="feature">
+  <h2>Neuromodulation</h2>
+  <p>
+    Dr Collighan has a particular expertise in neuromodulation, a medical procedure used to alter nervous system function for relief of pain. He has jointly established a neuromodulation service at East Kent Hospitals NHS Trust that provides both spinal cord stimulation and intrathecal pump placement. Following guidance from NICE in November 2022 Dr Collighan is now able to offer Multifidus muscle neuromodulation using Mainstay systems for patients with non-surgical low back pain with signs of axial instability.' 
+  </p>
+</section>
+
+<!-- MEDICO LEGAL -->
+<section id="medico" class="fade-in">
+  <div class="section-card">
+    <h2>Medico-legal</h2>
+
+    <p>Dr Collighan can be contacted through <strong>Pain Expert Limited</strong></p>
+      <div class="address">
+        <p>Pain Expert Limited</p>
+        <p>Oak Lodge Business Centre</p>
+        <p>Oak Lodge School Lane</p>
+        <p>Little Melton Norwich</p>
+        <p>NR9 3LB</p>
+      </div>
+      <p>Phone: 01603 819115</p>
+      <p>Email: office@pain-expert.org</p>
+    <h2 class="title-two">Medico-Legal Experience</h2>
+    <p>
+      Dr Collighan has been involved in the preparation and submission of
+      medico-legal reports with regards to assessment of previous pain management and on-going requirements since 2009. He completes 20-30 medico-legal reports per year, majority claimant but he also has experience with defendant reports.
+    </p>
+    <p>
+      Medico-legal training includes Bond Solon Civil Procedure Rules for Expert Witnesses Certificate and regular attendance at Cambridge Annual Medico-Legal Conference. Dr Collighan has been an officer of the Medico-Legal Special Interest Group (SIG) of the British Pain Society.
+    </p>
+  </div>
+</section>
+
+<!-- CLINICS -->
+<section id="clinics" class="fade-in">
+  <div class="section-card">
+    <h2>Private Clinics</h2>
+
+    <div class="clinics-grid">
+
+      <div class="clinic-card" data-map="https://www.google.com/maps/place/Chaucer+Hospital/@51.2617684,1.0841467,17z/data=!4m15!1m8!3m7!1s0x47deca29626be26b:0x6f954acbfae01beb!2sCanterbury+CT4+7AR!3b1!8m2!3d51.2617221!4d1.0874451!16s%2Fg%2F1tj4gb3g!3m5!1s0x47deca29626ebba9:0x13a21138caecdfe2!8m2!3d51.2618043!4d1.0875734!16s%2Fg%2F11xjvf1qt?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D">
+        <h3>BMI Chaucer Hospital</h3>
+        <p>Nackington Road</p>
+        <p>Canterbury</p>
+        <p>Kent</p>
+        <p>CT4 7AR</p>
+      </div>
+
+      <div class="clinic-card" data-map="https://www.google.com/maps/place/Spencer+Private+Hospital/@51.3781921,1.3872993,17.25z/data=!4m15!1m8!3m7!1s0x47d9530909847c4d:0xa4fe3a860b336cfe!2sMargate+CT9+4BG!3b1!8m2!3d51.3771777!4d1.3879256!16s%2Fg%2F1tm8jvwz!3m5!1s0x47d95309099532cb:0xe81acb5d404dd241!8m2!3d51.3772355!4d1.3879838!16s%2Fg%2F12hmk_z3y?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D">
+        <h3>Spencer Private Hospital</h3>
+        <p>Queen Elizabeth the Queen Mother Hospital</p>
+        <p>Ramsgate Road</p>
+        <p>Margate</p>
+        <p>Kent</p>
+        <p>CT9 4BG</p>
+      </div>
+
+      <div class="clinic-card" data-map="https://www.google.com/maps/place/One+Ashford+Hospital/@51.1424509,0.9103035,17z/data=!4m15!1m8!3m7!1s0x47dedadd43c6c60f:0x987e8548e54ec462!2sWillesborough,+Ashford+TN24+0YS!3b1!8m2!3d51.1426623!4d0.9117358!16s%2Fg%2F11fhkch4_l!3m5!1s0x47dedae77e034d93:0x5bc81f582ad934ce!8m2!3d51.1426018!4d0.9116936!16s%2Fg%2F11cnrfjgmf?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D">
+        <h3>One Ashford Hospital</h3>
+        <p>Kennington Road</p>
+        <p>Ashford</p>
+        <p>Kent</p>
+        <p>TN24 0YS</p>
+      </div>
+
+    </div>
+
+    <p class="clinic-contact">
+      All enquiries to Vanessa Seller: <strong>07359 502104</strong>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+  <div class="section-card contact">
+    <h2>Contact</h2>
+
+    <form id="contact-form">
+      <input type="text" name="user_name" placeholder="Full Name" required>
+      <input type="email" name="user_email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <p>Email: vanessa.seller@outlook.com</p>
+    <p>Phone: 07359 502104</p>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news" class="fade-in">
+  <div class="section-card">
+    <h2>News</h2>
+    <div class="news-wrapper">
+    <button class="news-btn left">&#10094;</button>
+      <div class="news-scroll">
+        <div class="news-item">
+          <h3>Election to Honorary Secretary</h3>
+          <p>Dr Collighan has recently been elected Honorary Secretary for the British Pain Society</p>
+          <p>In 2018 Dr Colleague was elected by his colleagues as a member of the Council of the British Pain Society. He acts as council liaison for the National Institute of Clinical Effectiveness (NICE) and also the Interventional Pain Management special Interest group.</p>
+        </div>
+
+        <div class="news-item">
+          <h3>Other Appointments</h3>
+          <p>In 2013, Dr Collighan was appointed as the South East Coast Representative on the NHS England Clinical Reference Group (CRG) for Specialised Pain Services. In 2016 he was appointed South representative and in 2019 he was appointed as a National Representative.</p>
+        </div>
+
+        <div class="news-item">
+          <h3>More news to come</h3>
+          <p>Stay tuned for more updates</p>
+        </div>
+      </div>
+    <button class="news-btn right">&#10095;</button>
+  </div>
+    <div class="news-static">
+      <h3>Developing the field of Pain Medicine</h3>
+      <p>Dr Collighan has been actively involved in the development of the field of pain medicine. This includes the following roles:</p>
+        <ul>
+          <li>Co-Chair of an editorial group that developed guidelines for Medial Branch Blocks and Radiofrequency Denervation of lumbar facet joints in the UK. Now published jointly by the British Pain Society and the Royal College of Anaesthetists' Pain Faculty</li>
+          <li>Chair of a Pain Society working group developing a UK statement on the use of steroids in axial procedures.</li>
+          <li>Appointed Chair of the British Pain Society Interventional Pain Management (IPM) group in 2015</li>
+          <li>Joint author of articles in the <a href="https://www.joopm.com/" class="link">Journal of Observational Pain Medicine</a></li>
+          <li>Awarded the Fellowship for the Faculty of Pain</li>
+        </ul>
+      <h3>British Pain Society council member</h3>
+        <p>Dr Collighan is an active member or fellow of: The Royal College of Anaesthetists, The Association of Anaesthetists, British Medical Association, The International Association for the Study of Pain, The British Pain Society, Interventional Pain Management Special interest group and Medicolegal Special Interest Group, The Neuromodulation Society of the United Kingdom and Ireland, Representative on the NHS England Clinical Reference Group for Specialised Pain Services</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© Dr Neil Collighan</p>
+  <p>Website: Georgia Collighan</p>
+  <p>Company Details: Painspecialist Limited  Registration Number: 08432288</p>
+    <p>Registered Address: Victoria Court, 17-21 Ashford Road, Maidstone, Kent, England, ME14 5DA</p>
+    <p>Refund Policy: Payments for services received In £ only are non-refundable unless there has been a defined overpayment. The defined overpayment can be repaid or used as credit for further treatment on agreement with Dr Collighan</p>
+</footer>
+
+</body>
+</html>
