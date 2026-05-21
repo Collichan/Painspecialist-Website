@@ -67,14 +67,14 @@ span {
 /* ===== NAVBAR ===== */
 
 .navbar{
-  position: sticky;
+  position:sticky;
   top:0;
 
   display:flex;
-  align-items:center;
-  justify-content:space-between;
 
-  gap: 30px;
+  align-items:center;
+
+  justify-content:space-between;
 
   padding:14px 30px;
 
@@ -87,9 +87,9 @@ span {
 
   color:white;
 
-  z-index:1000;
-
   min-height:72px;
+
+  z-index:1000;
 }
 
 /* LOGO */
@@ -115,20 +115,21 @@ span {
 /* NAV */
 
 .navbar nav{
-  display:flex;
-  flex-wrap: nowrap;
- 
-  align-items:center;
 
-  justify-content:center;
+  display:flex;
 
   gap:22px;
 
-  flex:1;
+  align-items:center;
 
-  min-width:0;
+  margin-left:auto;
+
+  margin-right:20px;
+
+  flex:none;
 
   white-space:nowrap;
+
 }
 
 .navbar nav a{
@@ -149,6 +150,7 @@ span {
 /* BURGER */
 
 .burger{
+
   display:none;
 
   background:none;
@@ -161,22 +163,29 @@ span {
 
   cursor:pointer;
 
+  width:auto;
+
   padding:0;
 
-  margin-left:auto;
 }
-
 /* MOBILE */
 
-@media (max-width: 900px){
+@media (max-width:900px){
 
   .navbar{
+
     flex-wrap:wrap;
-    padding:12px 20px;
+
+    align-items:center;
+
   }
 
   .burger{
+
     display:block;
+
+    margin-left:auto;
+
   }
 
   .navbar nav{
@@ -185,17 +194,24 @@ span {
 
     width:100%;
 
+    margin:16px 0 0;
+
     flex-direction:column;
 
     align-items:flex-start;
 
     gap:16px;
 
-    padding-top:18px;
   }
 
   .navbar nav.open{
     display:flex;
+  }
+
+  .switch{
+
+    margin-left:12px;
+
   }
 
 }
