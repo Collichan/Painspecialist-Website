@@ -1,9 +1,83 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("themeToggle");
 
-  const saved = localStorage.getItem("theme") || "light";
-  document.body.classList.toggle("dark", saved === "dark");
-  toggle.checked = saved === "dark";
+  const toggle =
+document.getElementById("themeToggle");
+
+// Detect browser / OS preference
+const prefersDark =
+window.matchMedia(
+"(prefers-color-scheme: dark)"
+).matches;
+
+// Use saved preference if present,
+// otherwise use browser setting
+
+const saved =
+localStorage.getItem("theme");
+
+const isDark =
+saved
+? saved === "dark"
+: prefersDark;
+
+// Apply
+
+document.body.classList.toggle(
+"dark",
+isDark
+);
+
+toggle.checked =
+isDark;
+
+// Manual toggle
+
+toggle.addEventListener(
+"change",
+() => {
+
+const dark =
+toggle.checked;
+
+document.body.classList.toggle(
+"dark",
+dark
+);
+
+localStorage.setItem(
+"theme",
+dark ? "dark" : "light"
+);
+
+});
+
+// Update automatically if OS changes
+// (only if user hasn't manually chosen)
+
+window.matchMedia(
+"(prefers-color-scheme: dark)"
+)
+
+.addEventListener(
+"change",
+e => {
+
+if (
+localStorage.getItem("theme")
+=== null
+){
+
+document.body.classList.toggle(
+"dark",
+e.matches
+);
+
+toggle.checked =
+e.matches;
+
+}
+
+});
 
   toggle.addEventListener("change", () => {
     const isDark = toggle.checked;
@@ -20,13 +94,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+  document
+    .querySelectorAll(".fade-in")
+    .forEach(el => observer.observe(el));
+
+  // MOBILE BURGER
+  const burger =
+    document.getElementById("burgerBtn");
+
+  const nav =
+    document.getElementById("navMenu");
+
+  if (burger && nav) {
+
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+
+    nav
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+          nav.classList.remove("open");
+        });
+
+      });
+
+  }
+
 });
 
 // Clinic card click → open Google Maps
 document.querySelectorAll(".clinic-card").forEach(card => {
   card.addEventListener("click", () => {
     const url = card.getAttribute("data-map");
+
     if (url) {
       window.open(url, "_blank");
     }
@@ -35,51 +138,91 @@ document.querySelectorAll(".clinic-card").forEach(card => {
 
 emailjs.init("IRyz0xRAs1LLbXTQz");
 
-const form = document.getElementById("contact-form");
-const button = form.querySelector("button");
+const form =
+document.getElementById("contact-form");
+
+const button =
+form.querySelector("button");
 
 form.addEventListener("submit", function(e) {
+
   e.preventDefault();
 
-  const originalText = button.textContent;
+  const originalText =
+  button.textContent;
 
-  // Show loading state
-  button.textContent = "Sending...";
-  button.disabled = true;
+  button.textContent =
+  "Sending...";
 
-  emailjs.sendForm("service_gup35vc", "template_1jtr35h", this)
-    .then(() => {
-      // Success state
-      button.textContent = "Message Sent ✓";
-      button.style.background = "#4CAF50"; // green
+  button.disabled =
+  true;
 
-      form.reset();
+  emailjs.sendForm(
+    "service_gup35vc",
+    "template_1jtr35h",
+    this
+  )
 
-      // Reset after 3 seconds
-      setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
-        button.style.background = ""; // revert to CSS
-      }, 3000);
-    })
-    .catch(() => {
-      // Error state
-      button.textContent = "Failed – Try Again";
-      button.style.background = "#e74c3c"; // red
+  .then(() => {
 
-      setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
-        button.style.background = "";
-      }, 3000);
-    });
+    button.textContent =
+    "Message Sent ✓";
+
+    button.style.background =
+    "#4CAF50";
+
+    form.reset();
+
+    setTimeout(() => {
+
+      button.textContent =
+      originalText;
+
+      button.disabled =
+      false;
+
+      button.style.background =
+      "";
+
+    }, 3000);
+
+  })
+
+  .catch(() => {
+
+    button.textContent =
+    "Failed – Try Again";
+
+    button.style.background =
+    "#e74c3c";
+
+    setTimeout(() => {
+
+      button.textContent =
+      originalText;
+
+      button.disabled =
+      false;
+
+      button.style.background =
+      "";
+
+    }, 3000);
+
+  });
+
 });
 
-const newsScroll = document.querySelector(".news-scroll");
-const leftBtn = document.querySelector(".news-btn.left");
-const rightBtn = document.querySelector(".news-btn.right");
+const newsScroll =
+document.querySelector(".news-scroll");
 
-const scrollAmount = 300; // adjust for card width
+const leftBtn =
+document.querySelector(".news-btn.left");
+
+const rightBtn =
+document.querySelector(".news-btn.right");
+
+const scrollAmount = 300;
 
 leftBtn.addEventListener("click", () => {
   newsScroll.scrollBy({
