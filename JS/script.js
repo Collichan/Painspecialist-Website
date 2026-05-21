@@ -1,125 +1,137 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ===== THEME ===== */
+
   const toggle =
-document.getElementById("themeToggle");
+  document.getElementById("themeToggle");
 
-// Detect browser / OS preference
-const prefersDark =
-window.matchMedia(
-"(prefers-color-scheme: dark)"
-).matches;
+  const saved =
+  localStorage.getItem("theme");
 
-// Use saved preference if present,
-// otherwise use browser setting
+  const prefersDark =
+  window.matchMedia(
+  "(prefers-color-scheme: dark)"
+  ).matches;
 
-const saved =
-localStorage.getItem("theme");
+  const dark =
+  saved
+  ? saved === "dark"
+  : prefersDark;
 
-const isDark =
-saved
-? saved === "dark"
-: prefersDark;
+  document.body.classList.toggle(
+    "dark",
+    dark
+  );
 
-// Apply
+  toggle.checked =
+  dark;
 
-document.body.classList.toggle(
-"dark",
-isDark
-);
+  toggle.addEventListener(
+    "change",
+    () => {
 
-toggle.checked =
-isDark;
+      document.body.classList.toggle(
+        "dark",
+        toggle.checked
+      );
 
-// Manual toggle
+      localStorage.setItem(
+        "theme",
+        toggle.checked
+        ? "dark"
+        : "light"
+      );
 
-toggle.addEventListener(
-"change",
-() => {
+    }
+  );
 
-const dark =
-toggle.checked;
+  window.matchMedia(
+  "(prefers-color-scheme: dark)"
+  )
 
-document.body.classList.toggle(
-"dark",
-dark
-);
+  .addEventListener(
+    "change",
+    e => {
 
-localStorage.setItem(
-"theme",
-dark ? "dark" : "light"
-);
+      if (
+      !localStorage.getItem(
+      "theme"
+      )) {
 
-});
+        document.body.classList.toggle(
+          "dark",
+          e.matches
+        );
 
-// Update automatically if OS changes
-// (only if user hasn't manually chosen)
+        toggle.checked =
+        e.matches;
 
-window.matchMedia(
-"(prefers-color-scheme: dark)"
-)
-
-.addEventListener(
-"change",
-e => {
-
-if (
-localStorage.getItem("theme")
-=== null
-){
-
-document.body.classList.toggle(
-"dark",
-e.matches
-);
-
-toggle.checked =
-e.matches;
-
-}
-
-});
-
-  toggle.addEventListener("change", () => {
-    const isDark = toggle.checked;
-    document.body.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
-
-  // Scroll animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
       }
-    });
-  });
 
-  document
-    .querySelectorAll(".fade-in")
-    .forEach(el => observer.observe(el));
+    }
+  );
 
-  // MOBILE BURGER
-  const burger =
-    document.getElementById("burgerBtn");
+  /* ===== SCROLL ===== */
 
-  const nav =
-    document.getElementById("navMenu");
+  const observer =
+  new IntersectionObserver(
+    entries => {
 
-  if (burger && nav) {
+      entries.forEach(
+      entry => {
 
-    burger.addEventListener("click", () => {
-      nav.classList.toggle("open");
-    });
-
-    nav
-      .querySelectorAll("a")
-      .forEach(link => {
-
-        link.addEventListener("click", () => {
-          nav.classList.remove("open");
-        });
+        if (
+        entry.isIntersecting
+        ) {
+          entry.target.classList.add(
+            "visible"
+          );
+        }
 
       });
+
+    }
+  );
+
+  document
+  .querySelectorAll(
+    ".fade-in"
+  )
+
+  .forEach(
+    el =>
+    observer.observe(
+      el
+    )
+  );
+
+  /* ===== BURGER ===== */
+
+  const burger =
+  document.getElementById(
+    "burgerBtn"
+  );
+
+  const nav =
+  document.getElementById(
+    "navMenu"
+  );
+
+  if (
+    burger &&
+    nav
+  ){
+
+    burger.addEventListener(
+      "click",
+      () => {
+
+        nav.classList.toggle(
+          "open"
+        );
+
+      }
+    );
 
   }
 
