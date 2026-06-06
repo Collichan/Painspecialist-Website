@@ -51,6 +51,7 @@ h1 {
 h2{
   font-size: 30px;
   font-weight: bolder;
+  line-height: 45px;
 }
 
 h3 {
@@ -645,11 +646,30 @@ section {
 /* MOBILE NEWS*/
 
 @media (max-width: 900px) {
+
   .clinics-grid {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .news-btn {
     display: none;
   }
+
+  .news-wrapper {
+    grid-template-columns: 1fr;
   }
+
+  .news-wrapper::after {
+    display: none;
+  }
+
+  .news-item {
+    flex: 0 0 80%;
+  }
+
+}
 
 .link {
   text-decoration: none;
